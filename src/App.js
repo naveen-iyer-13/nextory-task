@@ -25,22 +25,35 @@ function App(props){
         if (nameRegex.test(value)) {
           setIsValid({...isValid, firstName: true})
         }
+        else {
+          setIsValid({...isValid, firstName: false})
+        }
         break;
       case "lastName":
         if (nameRegex.test(value)) {
           setIsValid({...isValid, lastName: true})
+        }
+        else {
+          setIsValid({...isValid, lastName: false})
         }
         break;
       case "email":
         if (emailRegex.test(value)) {
           setIsValid({...isValid, email: true})
         }
+        else {
+          setIsValid({...isValid, email: false})
+        }
         break;
       case "password":
         if (passwordRegex.test(value)) {
           setIsValid({...isValid, password: true})
         }
+        else {
+          setIsValid({...isValid, password: false})          
+        }
         break;
+      default:
     }
   }
 
@@ -59,10 +72,10 @@ function App(props){
 
   return (
     <div className="app">
-        <div style={{margin: "50px auto", width: 500, border: "1px solid #637a91"}}>
-          <div className="form-header" style={{backgroundColor: "#637a91", fontSize: 20, height: 50, display: "flex", justifyContent: "center", color: "#FFFFFF", alignItems: "center"}}>Get Started Today!</div>
-          <form onSubmit={handleSubmit} style={{width: "450px", margin: "0px auto",textAlign: "left"}}>
-            <div className="level-1" style={{display: "flex", margin: "20px auto", justifyContent: "space-between"}}>
+        <div className="form-parent">
+          <div className="form-header">Get Started Today!</div>
+          <form onSubmit={handleSubmit} className="form">
+            <div className="level-container">
               <InputBox
                 showErrorMessage={isFormSubmitted && !isValid.firstName}
                 value={formValues.firstName}
@@ -74,7 +87,7 @@ function App(props){
                 errorMessage="Please enter a valid last name"
                 handleChange={handleChange} name="lastName" label="Last Name"/>
             </div>
-            <div className="level-1" style={{display: "flex", margin: "20px auto", justifyContent: "space-between"}}>
+            <div className="level-container">
               <InputBox
                 showErrorMessage={isFormSubmitted && !isValid.email}
                 value={formValues.email}
@@ -86,7 +99,7 @@ function App(props){
                 errorMessage="Please enter a valid password"
                 handleChange={handleChange} name="password" label="Password"/>
             </div>
-            <button className="submit-button" style={{outline: "none", color: "#FFFFFF", fontSize: 20, cursor: "pointer", backgroundColor: "#5fcf80", width: "100%", height: 50, margin: "20px auto 5px"}}>Claim your free trial</button>
+            <button className="submit-button">Claim your free trial</button>
             <span>You are agreeing to our <a href="/">Terms and Services</a></span>
           </form>
         </div>

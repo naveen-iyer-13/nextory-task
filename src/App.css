@@ -1,5 +1,63 @@
+@import '~antd/dist/antd.css';
+
 .App {
   text-align: center;
+}
+
+.form-parent {
+  margin: 50px auto;
+  width: 500px;
+  border: 1px solid #637a91;
+}
+
+.form-header {
+  background-color: #637a91;
+  font-size: 20px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  color: #FFFFFF;
+  align-items: center;
+}
+
+.form {
+  width: 450px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.level-container {
+  display: flex;
+  margin: 20px auto;
+  justify-content: space-between;
+}
+
+.submit-button {
+  outline: none;
+  color: #FFFFFF;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #5fcf80;
+  width: 100%;
+  height: 50px;
+  margin: 20px auto 5px;
+}
+
+.inputbox-container {
+  width: 45%;
+  height: 80px;
+}
+
+.label {
+  display: block;
+  text-align: left;
+  color: #000000;
+  font-size: 17px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
 }
 
 .App-logo {
